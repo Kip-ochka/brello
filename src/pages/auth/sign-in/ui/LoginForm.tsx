@@ -1,8 +1,11 @@
-import styles from "./styles.module.css";
 import { FC } from "react";
+import styles from "./styles.module.css";
 import { Button, Input } from "@/shared/ui";
+import { $email, emailChanged } from "../model";
+import { useUnit } from "effector-react";
 
 export const LoginForm: FC = () => {
+  const [emai, handleEmail] = useUnit([$email, emailChanged]);
   return (
     <>
       <h1 className={styles.headline}>Sign in</h1>
@@ -16,11 +19,13 @@ export const LoginForm: FC = () => {
           className={styles.input}
           name="email"
           disabled={false}
-          value={""}
+          value={emai}
           error={undefined}
           label="Email"
           placeholder="Enter your email"
-          onValue={() => {}}
+          onValue={({ value }) => {
+            handleEmail(value);
+          }}
         />
         <Button loading={false} className={styles.button} type="submit">
           Get started
