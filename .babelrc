@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "putronum/babel-preset"
+  ],
+  "plugins": [
+    [
+      "effector/babel-plugin",
+      {
+        "factories": []
+      }
+    ]
+  ]
+}
