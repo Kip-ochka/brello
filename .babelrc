@@ -1,6 +1,6 @@
 {
   "presets": [
-    "putronum/babel-preset"
+    "patronum/babel-preset"
   ],
   "plugins": [
     [
