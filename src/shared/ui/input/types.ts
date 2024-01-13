@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes, ReactNode } from "react";
 
 export interface Props<T extends string>
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -10,5 +10,5 @@ export interface Props<T extends string>
   type?: "text" | "email" | "search";
   hint?: string;
   variant?: "sm" | "md";
-  error?: string;
+  error?: ReactNode;
 }

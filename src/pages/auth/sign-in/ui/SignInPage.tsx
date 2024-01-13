@@ -3,8 +3,13 @@ import { ImageLogomark } from "@/shared/assets/images";
 import { IconMail01 } from "@/shared/assets/icons";
 import { Logo } from "@/shared/ui";
 import { LoginForm } from "./LoginForm.tsx";
+import { useUnit } from "effector-react";
+import { $error, $finished } from "@/pages/auth/sign-in/model";
+import { LoginSucceeded } from "@/pages/auth/sign-in/ui/LoginSucceeded.tsx";
+import { ErrorHappened } from "@/pages/auth/sign-in/ui/ErrorHappened.tsx";
 
 export const SignInPage = () => {
+  const [finished, error] = useUnit([$finished, $error]);
   return (
     <>
       <main className={styles.root}>
@@ -18,7 +23,13 @@ export const SignInPage = () => {
               src={ImageLogomark}
               alt="Brello logomark"
             />
-            <LoginForm />
+            {finished ? (
+              <LoginSucceeded />
+            ) : error === "UnknownError" ? (
+              <ErrorHappened />
+            ) : (
+              <LoginForm />
+            )}
           </section>
           <footer className={styles.footer}>
             <p className={styles.info}>&copy; Brello 2023</p>
