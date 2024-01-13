@@ -52,7 +52,7 @@
 .input {
   width: 100%;
   margin-bottom: 24px;
- 
+
 }
 
 .button {
@@ -71,6 +71,7 @@
   align-items: center;
   justify-content: flex-start;
   width: auto;
+  align-self: start;
 }
 
 .footer {
@@ -115,7 +116,7 @@
     display: flex;
     max-width: 360px;
     flex-direction: column;
-    padding: 32px;
+    padding: 0;
   }
 
   .footer {
