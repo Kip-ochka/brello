@@ -1,6 +1,6 @@
 import "./styles/index.css";
-import { SignInPage } from "@/pages/auth/sign-in";
+import { RoutesView } from "@/pages";
 
 export const App = () => {
-  return <SignInPage />;
+  return <RoutesView />;
 };
