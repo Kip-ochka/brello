@@ -1,6 +1,10 @@
+import { useUnit } from "effector-react";
 import { FC } from "react";
-import styles from "./styles.module.css";
+
+import { errorText } from "@/pages/auth/sign-in/model/errorText.ts";
+
 import { Button, Input } from "@/shared/ui";
+
 import {
   $email,
   $error,
@@ -8,8 +12,7 @@ import {
   emailChanged,
   formSubmitted,
 } from "../model";
-import { useUnit } from "effector-react";
-import { errorText } from "@/pages/auth/sign-in/model/errorText.ts";
+import styles from "./styles.module.css";
 
 export const LoginForm: FC = () => {
   const [email, pending, error, handleEmail, handleSubmit] = useUnit([

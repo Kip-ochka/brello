@@ -1,10 +1,12 @@
-import { createRoot } from "react-dom/client";
-import { App } from "@/app";
+import { RouterProvider } from "atomic-router-react";
 import { allSettled, fork } from "effector";
 import { Provider } from "effector-react";
-import { RouterProvider } from "atomic-router-react";
-import { router } from "@/shared/routing.ts";
+import { createRoot } from "react-dom/client";
+
+import { App } from "@/app";
+
 import { appStarted } from "@/shared/lib/init.ts";
+import { router } from "@/shared/routing.ts";
 
 const root = document.getElementById("root") as HTMLElement;
 const scope = fork();
@@ -18,5 +20,5 @@ createRoot(root).render(
     <RouterProvider router={router}>
       <App />
     </RouterProvider>
-  </Provider>
+  </Provider>,
 );

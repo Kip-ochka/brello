@@ -1,5 +1,6 @@
 import { attach, createEvent, createStore, sample } from "effector";
 import { not } from "patronum";
+
 import { api } from "@/shared/api";
 import { routes } from "@/shared/routing.ts";
 
@@ -18,7 +19,7 @@ export const $pending = signInFx.pending;
 export const $finished = createStore(false);
 
 const $isEmailValid = $email.map(
-  (email) => email.length > 5 && email.includes("@") && email.includes(".")
+  (email) => email.length > 5 && email.includes("@") && email.includes("."),
 );
 
 $email.on(emailChanged, (_, email) => email);

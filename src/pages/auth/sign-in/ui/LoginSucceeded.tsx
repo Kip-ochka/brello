@@ -1,9 +1,12 @@
-import { FC } from "react";
-import { Button, FeaturedIcon } from "@/shared/ui";
-import { IconArrowLeft, IconMail01 } from "@/shared/assets/icons";
-import styles from "./styles.module.css";
 import { useUnit } from "effector-react/effector-react.mjs";
+import { FC } from "react";
+
 import { $email, backToLoginPressed } from "@/pages/auth/sign-in/model";
+
+import { IconArrowLeft, IconMail01 } from "@/shared/assets/icons";
+import { Button, FeaturedIcon } from "@/shared/ui";
+
+import styles from "./styles.module.css";
 
 export const LoginSucceeded: FC = () => {
   const [email, handleBackClick] = useUnit([$email, backToLoginPressed]);
