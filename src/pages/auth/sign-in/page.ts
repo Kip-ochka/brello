@@ -1,7 +1,6 @@
-import { currentRoute } from "@/pages/auth/sign-in/model";
 import { SignInPage } from "@/pages/auth/sign-in/ui/SignInPage.tsx";
 
-export { SignInPage };
+import { currentRoute } from "./model";
 
 export default {
   view: SignInPage,

@@ -32,10 +32,10 @@ export const LoginForm: FC = () => {
           name="email"
           disabled={pending}
           value={email}
-          error={error ? errorText[error] : null}
+          error={error ? errorText[error] : undefined}
           label="Email"
           placeholder="Enter your email"
-          onValue={({ value }) => {
+          onValue={(value) => {
             handleEmail(value);
           }}
           type={"email"}
