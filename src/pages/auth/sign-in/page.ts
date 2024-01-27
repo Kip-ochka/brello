@@ -3,7 +3,7 @@ import { currentRoute } from "@/pages/auth/sign-in/model";
 
 export { SignInPage };
 
-export const AuthSignInRoute = {
+export default {
   view: SignInPage,
   route: currentRoute,
 };
