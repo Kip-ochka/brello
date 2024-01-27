@@ -1,17 +1,19 @@
 import {
+  UnmappedRouteObject,
   createHistoryRouter,
   createRoute,
   createRouterControls,
-  UnmappedRouteObject,
 } from "atomic-router";
 import { sample } from "effector";
-import { appStarted } from "@/shared/lib/init.ts";
 import { createBrowserHistory } from "history";
+
+import { appStarted } from "@/shared/lib/init.ts";
 
 export const routes = {
   home: createRoute(),
   auth: {
     signIn: createRoute(),
+    finish: createRoute(),
   },
   onboarding: {
     user: createRoute(),
@@ -23,6 +25,7 @@ export const notFoundRoute = createRoute();
 const routesMap: UnmappedRouteObject<object>[] = [
   { path: "/", route: routes.home },
   { path: "/auth/sign-in", route: routes.auth.signIn },
+  { path: "/auth/finish", route: routes.auth.finish },
   { path: "/onboarding/user", route: routes.onboarding.user },
 ];
 

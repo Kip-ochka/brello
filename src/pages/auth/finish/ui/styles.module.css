@@ -3,6 +3,11 @@
   padding: 16px;
 }
 
+.loader {
+  margin-bottom: 19px;
+  margin-left: -5px;
+}
+
 .featured-icon {
   margin-bottom: 19px;
   margin-left: -5px;
