@@ -8,7 +8,7 @@ export type SignInError = "UnknownError" | "InvalidError" | "RateLimit";
 
 export const currentRoute = routes.auth.signIn;
 
-const signInFx = attach({ effect: api.auth.signUpWithEmailFx });
+const signInFx = attach({ effect: api.auth.signInWithEmailFx });
 export const emailChanged = createEvent<string>();
 export const formSubmitted = createEvent();
 export const backToLoginPressed = createEvent();
