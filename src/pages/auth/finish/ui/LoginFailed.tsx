@@ -1,16 +1,16 @@
-import { useUnit } from "effector-react/effector-react.mjs";
+import { useUnit } from "effector-react";
 import { FC } from "react";
 
-import { $error, backToLoginPressed } from "@/pages/auth/sign-in/model";
-import { errorText } from "@/pages/auth/sign-in/model/errorText.ts";
+import { tryAgainClicked } from "@/pages/auth/finish/model";
 
 import { IconAlertCircle, IconArrowLeft } from "@/shared/assets/icons";
 import { Button, FeaturedIcon } from "@/shared/ui";
 
 import styles from "./styles.module.css";
 
-export const ErrorHappened: FC = () => {
-  const [error, handleBackClick] = useUnit([$error, backToLoginPressed]);
+export const LoginFailed: FC = () => {
+  const handleTryAgain = useUnit(tryAgainClicked);
+
   return (
     <>
       <FeaturedIcon
@@ -18,19 +18,15 @@ export const ErrorHappened: FC = () => {
         color="error"
         Icon={IconAlertCircle}
       />
-      <h1 className={styles.headline}>Some error happened</h1>
+      <h1 className={styles.headline}>Sign In Failed</h1>
       <p className={styles.description}>
-        With description:{" "}
-        <span className={styles["description-accent"]}>
-          {error && errorText[error]}
-        </span>
+        We encountered an issue validating your sign-in link. Please ensure the
+        link hasn't expired or been used before.
       </p>
       <Button
         variant="link-gray"
         className={styles["button-back"]}
-        onClick={() => {
-          handleBackClick();
-        }}
+        onClick={handleTryAgain}
       >
         <IconArrowLeft className={styles["back-icon"]} />
         Try again

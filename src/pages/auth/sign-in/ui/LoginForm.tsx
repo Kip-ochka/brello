@@ -15,13 +15,8 @@ import {
 import styles from "./styles.module.css";
 
 export const LoginForm: FC = () => {
-  const [email, pending, error, handleEmail, handleSubmit] = useUnit([
-    $email,
-    $pending,
-    $error,
-    emailChanged,
-    formSubmitted,
-  ]);
+  const [email, pending, error] = useUnit([$email, $pending, $error]);
+  const [handleEmail, handleSubmit] = useUnit([emailChanged, formSubmitted]);
   return (
     <>
       <h1 className={styles.headline}>Sign in</h1>

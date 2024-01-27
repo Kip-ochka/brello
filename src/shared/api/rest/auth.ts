@@ -1,7 +1,7 @@
-import { client } from "@/shared/api/client.ts";
-import { SITE_URL } from "@/app/config";
 import { AuthError } from "@supabase/supabase-js";
 import { createEffect } from "effector/effector.umd";
+
+import { client } from "@/shared/api/client.ts";
 
 export type Email = string;
 export type UserId = Uuid;
@@ -22,10 +22,12 @@ export const signUpWithEmailFx = createEffect<
   void,
   AuthError
 >(async ({ email }) => {
+  const baseUrl = document.location.toString();
+  const emailRedirectTo = new URL("/auth/finish", baseUrl).toString();
   const { error } = await client.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: SITE_URL,
+      emailRedirectTo,
     },
   });
   checkError(error);
@@ -52,5 +54,5 @@ export const signInWithGoogleFx = createEffect<void, void, AuthError>(
   async () => {
     const { error } = await client.auth.signInWithOAuth({ provider: "google" });
     checkError(error);
-  }
+  },
 );
