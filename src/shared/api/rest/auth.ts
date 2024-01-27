@@ -47,3 +47,10 @@ export const signOutFx = createEffect<void, void, AuthError>(async () => {
   const { error } = await client.auth.signOut();
   checkError(error);
 });
+
+export const signInWithGoogleFx = createEffect<void, void, AuthError>(
+  async () => {
+    const { error } = await client.auth.signInWithOAuth({ provider: "google" });
+    checkError(error);
+  }
+);
