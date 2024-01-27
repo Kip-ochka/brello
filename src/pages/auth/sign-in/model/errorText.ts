@@ -1,5 +1,6 @@
-import { SignInError } from "@/pages/auth/sign-in/model/index.ts";
 import { ReactNode } from "react";
+
+import { SignInError } from "@/pages/auth/sign-in/model/index.ts";
 
 export const errorText: { [Key in SignInError]: ReactNode } = {
   InvalidError: "Must be a valid email address",
